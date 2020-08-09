@@ -7,6 +7,9 @@ function App() {
       <Header
         title= {'News'}
       />
+      <div className='container white'>
+        
+      </div>
     </Fragment>
   );
 }
