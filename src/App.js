@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import ListNews from "./components/ListNews";
 
 function App() {
   const [category, setCategory] = useState("");
-  const [noticias, guardarNoticias] = useState([]);
+  const [news, setNews] = useState([]);
 
   useEffect(() => {
     const consultarAPI = async () => {
@@ -13,7 +14,7 @@ function App() {
       const respuesta = await fetch(url);
       const noticias = await respuesta.json();
 
-      guardarNoticias(noticias.articles);
+      setNews(noticias.articles);
       console.log(noticias.articles);
     };
     consultarAPI();
@@ -24,6 +25,9 @@ function App() {
       <Header title={"News"} />
       <div className="container white">
         <Form setCategory={setCategory} />
+        <ListNews
+          news = {news}
+        />
       </div>
     </Fragment>
   );
