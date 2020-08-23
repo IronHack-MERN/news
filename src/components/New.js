@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const New = ({ oneNew }) => {
   const { urlToImage, url, title, description, source } = oneNew;
@@ -31,5 +32,9 @@ const New = ({ oneNew }) => {
     </div>
   );
 };
+
+New.propTypes = {
+  oneNew: PropTypes.object.isRequired
+}
 
 export default New;

@@ -41,4 +41,8 @@ const Form = ({ setCategory }) => {
   );
 };
 
+Form.propTypes = {
+  setCategory: PropTypes.func.isRequired
+}
+
 export default Form;

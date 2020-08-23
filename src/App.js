@@ -15,7 +15,6 @@ function App() {
       const noticias = await respuesta.json();
 
       setNews(noticias.articles);
-      console.log(noticias.articles);
     };
     consultarAPI();
   }, [category]);
@@ -32,5 +31,6 @@ function App() {
     </Fragment>
   );
 }
+
 
 export default App;
