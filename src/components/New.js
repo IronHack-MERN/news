@@ -6,7 +6,7 @@ const New = ({ oneNew }) => {
   const image = urlToImage ? (
     <div className="card-image">
       <img src={urlToImage} alt="portrait-of-new" />
-      <span className="card-title">{source.name}</span>
+      <span className="card-title">hola{source.name}</span>
     </div>
   ) : null;
 
@@ -17,6 +17,7 @@ const New = ({ oneNew }) => {
         <div className="card-content">
           <h5>{title}</h5>
           <p>{description}</p>
+          <p>{source.name}</p>
         </div>
         <div className="card-action">
           <a

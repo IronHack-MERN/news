@@ -5,11 +5,12 @@ import useSelect from "../hooks/useSelect";
 
 const Form = ({ setCategory }) => {
   const OPTIONS = [
-    { value: "general", label: "General" },
+    { value: "world", label: "World" },
+    { value: "nation", label: "Nation" },
     { value: "business", label: "Business" },
     { value: "entertainment", label: "Entertainment" },
-    { value: "health", label: "Health" },
-    { value: "science", label: "Science" },
+    { value: "health", label: "Health" }, 
+    { value: "science", label: "Science" }, 
     { value: "sports", label: "Sports" },
     { value: "technology", label: "Technology" },
   ];

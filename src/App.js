@@ -2,28 +2,32 @@ import React, { Fragment, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import ListNews from "./components/ListNews";
+import newsService from './services/newsService';
 
 function App() {
   const [category, setCategory] = useState("");
   const [news, setNews] = useState([]);
 
+  async function getData(){
+    try {
+      const result = await newsService.getNewsFromTopic({category});
+     setNews(result.articles);
+    } catch (error) {
+      console.log('Not connection possible!!!');
+    }
+  }
+
   useEffect(() => {
-    const consultarAPI = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=mx&category=${category}&apiKey=87d631c59e0c4e1698100547578a5ed7`;
-
-      const respuesta = await fetch(url);
-      const noticias = await respuesta.json();
-
-      setNews(noticias.articles);
-    };
-    consultarAPI();
+     getData();
   }, [category]);
 
   return (
     <Fragment>
       <Header title={"News"} />
       <div className="container white">
-        <Form setCategory={setCategory} />
+        <Form 
+          setCategory={setCategory} 
+        />
         <ListNews
           news = {news}
         />
@@ -31,6 +35,5 @@ function App() {
     </Fragment>
   );
 }
-
 
 export default App;
